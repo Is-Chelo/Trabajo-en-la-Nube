@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+    <Button
+        android:id="@+id/btn_mostrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MostrarDB"
+        android:layout_centerInParent="true"
+        />
+    <TextView
+        android:id="@+id/txt_trabajoNube"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_centerInParent="true"
+        android:text="TRABAJO EN LA NUBE!"
+        android:layout_below="@+id/btn_mostrar"
+        />
+
+    <TextView
+        android:id="@+id/txt_nombre"
+        android:layout_marginTop="50dp"
+        android:layout_below="@+id/txt_trabajoNube"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CARLOS MARCELO TORRES VARGAS"
+        tools:layout_editor_absoluteX="101dp"
+        tools:layout_editor_absoluteY="438dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_cerrarSesion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cerrar"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginRight="15dp"
+        />
+
+    <Button
+        android:id="@+id/btn_datosUsuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_nombre"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="DAtos Usuario"/>
+
+    <Button
+        android:id="@+id/btn_agregarDB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Agregar a la BD"
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/btn_datosUsuario"
+        />
+
+</RelativeLayout>

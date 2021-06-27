@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">trabajoenlanubefirebase</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="nombreUsuario">Nombre de Usuario: </string>
+    <string name="correoUsuario">Correo del Usuario: </string>
+    <string name="telefonoUsuario">Telefono: </string>
+
+    <!-- ... -->
+    <string name="facebook_application_id" translatable="false">1155354211647605</string>
+    <!-- Facebook Application ID, prefixed by 'fb'. Enables Chrome Custom tabs. -->
+    <string name="facebook_login_protocol_scheme" translatable="false">fb1155354211647605</string>
+
+</resources>
