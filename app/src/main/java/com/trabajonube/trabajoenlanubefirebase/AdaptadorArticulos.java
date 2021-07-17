@@ -8,12 +8,18 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.toolbox.ImageLoader;
+import com.android.volley.toolbox.NetworkImageView;
+
+import  com.trabajonube.trabajoenlanubefirebase.BasedeDatosActivity;
+
 import java.util.List;
 
 public class AdaptadorArticulos extends RecyclerView.Adapter<AdaptadorArticulos.ViewHolder> {
     private LayoutInflater inflador; //Crea Layouts a partir del XML protecte
     private List<String> lista;
     private Context contexto;
+//    private ImageLoader lectorImagenes;
 
 
     public AdaptadorArticulos(Context contexto, List<String> listaLibros) {
@@ -25,12 +31,13 @@ public class AdaptadorArticulos extends RecyclerView.Adapter<AdaptadorArticulos.
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView nombre, detalle;
         public TextView costo;
-
+        public NetworkImageView icon;
         ViewHolder(View itemView) {
             super(itemView);
             nombre = (TextView) itemView.findViewById(R.id.nombre);
             detalle = (TextView) itemView.findViewById(R.id.detalle);
             costo = (TextView) itemView.findViewById(R.id.costo);
+            icon = itemView.findViewById(R.id.icono);
         }
     }
 
@@ -48,7 +55,11 @@ public class AdaptadorArticulos extends RecyclerView.Adapter<AdaptadorArticulos.
         holder.nombre.setText(items[0]);
         holder.detalle.setText(items[1]);
         holder.costo.setText(items[2]);
+        holder.icon.setImageUrl("https://franz.usfx.bo/nube/"+items[3], BasedeDatosActivity.lectorImagenes);
+//      holder.icon.setImageUrl("https://mis-articulos-2be33.web.app/img/"+items[3], BasedeDatosActivity.lectorImagenes);
+
     }
+
 
 
     @Override

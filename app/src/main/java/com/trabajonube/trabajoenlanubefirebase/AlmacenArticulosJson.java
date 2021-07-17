@@ -44,7 +44,7 @@ public class AlmacenArticulosJson  implements AlmacenArticulos {
         List<String> salida = new ArrayList<>();
         for (Articulos articulo : listaarticulos) {
             if(articulo == null) {Log.i("Respondio","Es nullo");}else {
-                salida.add(articulo.getNombre() + "," + articulo.getDescripcion()+","+articulo.getCosto());
+                salida.add(articulo.getNombre() + "," + articulo.getDescripcion()+","+articulo.getCosto()+","+articulo.getImagen());
                 Log.i("Respondio SAlida", String.valueOf(salida));}
         }
         return salida;

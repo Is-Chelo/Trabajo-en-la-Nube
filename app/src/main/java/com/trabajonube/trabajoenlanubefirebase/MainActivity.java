@@ -58,8 +58,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
                 DatabaseReference myRef = firebaseDatabase.getReference("Articulos");
-                myRef.setValue(
-                        "1:{ costo:500, nombre:'aa', descripcion:'aaaaa' }");
+                myRef.setValue("1:{ costo:500, nombre:'aa', descripcion:'aaaaa' }");
 
             }
         });

@@ -5,14 +5,17 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
+import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.LruCache;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -26,13 +29,31 @@ public class BasedeDatosActivity extends AppCompatActivity {
     private String respuesta2;
     public static AlmacenArticulos almacen = new AlmacenArticulosJson();
     public static List<String> temporal;
-
+    public static ImageLoader lectorImagenes;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_basede_datos);
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+
+        RequestQueue colaPeticiones= Volley.newRequestQueue(getApplicationContext());
+
+        lectorImagenes = new ImageLoader(colaPeticiones, new ImageLoader.ImageCache() {
+            private final LruCache<String, Bitmap>
+                    cache = new LruCache<>(40);
+            @Override
+            public Bitmap getBitmap(String url) {
+                return cache.get(url);
+            }
+
+            @Override
+            public void putBitmap(String url, Bitmap bitmap) {
+                cache.put(url,bitmap);
+            }
+        });
+
+
 
         RequestQueue colaPeticiones2= Volley.newRequestQueue(getApplicationContext());
         StringRequest peticion = new StringRequest(Request.Method.GET, "https:/mis-articulos-2be33-default-rtdb.firebaseio.com/articulos.json", new Response.Listener<String>() {
